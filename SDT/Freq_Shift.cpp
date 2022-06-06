@@ -46,19 +46,19 @@ void FreqShift1()
 
 /*****
   Purpose: Shift Receive frequency by an arbitray amount
-  
+
   Parameter list:
     void
-    
+
   Return value;
     void
     Notes:  Routine includes checks to ensure the frequency selection stays within the bounds of the
     displayed spectrum
     Also included a variable frequency step, depending on how fast the encoder id turned.  Step varies from 50Hz/step to 10KHz/step
 *****/
-void FreqShift2() 
+void FreqShift2()
 {
- 
+
 /*************************************************************************************************  AFP 12-13-21
     freq_conv2()
 
@@ -75,8 +75,8 @@ void FreqShift2()
     Requires 4 complex multiplies and two adds per data point within the time domain buffer.  Applied after the data
     stream is sent to the Zoom FFT , but befor decimation.
  *************************************************************************************************/
- 
-  
+
+
 //  static long currentFreqAOld;
   static long oldEncoderTime;
   static long oldFineEncoderRead;
@@ -84,7 +84,7 @@ void FreqShift2()
   int encoderDelta;
   long currentSpectrumWidth = SR[SampleRate].rate / (1 << spectrum_zoom); // Zoom level spectrum width in KHz AFP 04-17-22
 
-  fineEncoderRead = fastTuneEncoder.read(); 
+  fineEncoderRead = fastTuneEncoder.read();
   encoderDelta = abs(fineEncoderRead - oldFineEncoderRead);
   if (encoderDelta > 0) {
     encoderTime = millis();
@@ -100,13 +100,13 @@ void FreqShift2()
   }
 
   if ((oldEncoderTime - encoderTime) < 200 and encoderDelta>2) { // Check to see how long an encoder change lasts.  If <200ms increase frequency step
-    if (encoderDelta > 10) 
+    if (encoderDelta > 10)
       stepFT2 = 10000;
-    if (encoderDelta > 5 and encoderDelta <= 10)  
+    if (encoderDelta > 5 and encoderDelta <= 10)
       stepFT2 = 5000;
-    if (encoderDelta > 3 and encoderDelta <= 5) 
+    if (encoderDelta > 3 and encoderDelta <= 5)
       stepFT2 = 1000;
-    if (encoderDelta > 2 and encoderDelta <= 3) 
+    if (encoderDelta > 2 and encoderDelta <= 3)
       stepFT2 = 500;
   } else {
     if (encoderDelta == 1 || encoderDelta == 2 ) {  //Encoderchange time >200ms
@@ -121,7 +121,7 @@ void FreqShift2()
   TxRxFreq = centerFreq + NCO_FREQ;   //AFP 12-24-21
   currentFreqA = TxRxFreq; // AFP 04-16-22
 
-  if (encoderDelta > 0 and abs(NCO_FREQ) < currentSpectrumWidth / 2 ) { 
+  if (encoderDelta > 0 and abs(NCO_FREQ) < currentSpectrumWidth / 2 ) {
     ShowFrequency();// AFP 04-17-22
   }
   NCO_INC = 2.0 * PI * NCO_FREQ / 192000.0; //192000 SPS is the actual sample rate used in the Receive ADC

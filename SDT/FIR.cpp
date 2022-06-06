@@ -523,7 +523,7 @@ float32_t FIR_Hilbert_coeffs_45[100] ={
 -0.000330916555227644,
 -0.000261564801895728,
 -0.000200782339450830
- 
+
 };
 
 float32_t FIR_Hilbert_coeffs_neg45[100] ={
@@ -627,7 +627,7 @@ float32_t FIR_Hilbert_coeffs_neg45[100] ={
  0.000316745972388931,
  0.000252370207237460,
  0.000208749169528268
- 
+
 };
 //===================End Excite Coefficients ============
 
@@ -1076,7 +1076,7 @@ void CalcFIRCoeffs(float *coeffs_I, int numCoeffs, float32_t fc, float32_t Astop
 
 /*****
   Purpose: void calc_cplx_FIR_coeffs
-  
+
   Parameter list:
     float *coeffs_I
     float *coeffs_Q
@@ -1084,7 +1084,7 @@ void CalcFIRCoeffs(float *coeffs_I, int numCoeffs, float32_t fc, float32_t Astop
     float32_t FLoCut
     float32_t FHiCut
     float SampleRate
-  
+
   Return value;
     void
 *****/
@@ -1148,7 +1148,7 @@ void CalcCplxFIRCoeffs(float * coeffs_I, float * coeffs_Q, int numCoeffs, float3
 
 /*****
   Purpose: void set_IIR_coeffs
-  
+
   Parameter list:
     void
   Return value;

@@ -246,7 +246,7 @@ void BandIncrease()
   Return value:
     void
 *****/
-void ButtonFreqIncrement()           
+void ButtonFreqIncrement()
 {
   long incrementValues[] = {10, 50, 100, 250, 1000, 10000};
   tuneIndex--;
@@ -299,7 +299,7 @@ int ProcessButtonPress(int valPin)
   if (valPin == -1) {                  // Not valid press
     return -1;
   }
-  
+
   for (switchIndex = 0; switchIndex < TOP_MENU_COUNT; switchIndex++)
   {
     if (abs(valPin - EEPROMData.switchValues[switchIndex]) < WIGGLE_ROOM)    // ...because ADC does return exact values every time

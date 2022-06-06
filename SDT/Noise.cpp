@@ -9,7 +9,7 @@
   Return value;
     void
 *****/
-void Kim1_NR() 
+void Kim1_NR()
 {
   /**********************************************************************************
       EXPERIMENTAL STATION FOR SPECTRAL NOISE REDUCTION
@@ -541,10 +541,10 @@ void SpectralNoiseReduction()
 
 /*****
   Purpose: void LMSNoiseReduction(
-  
+
   Parameter list:
     void
-    
+
   Return value;
     void
 *****/
@@ -564,10 +564,10 @@ void LMSNoiseReduction(int16_t blockSize, float32_t *nrbuffer)
 
 /*****
   Purpose: void InitLMSNoiseReduction()
-  
+
   Parameter list:
     void
-    
+
   Return value;
     void
 *****/

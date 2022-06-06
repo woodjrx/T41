@@ -4,21 +4,21 @@
 
 /*****
   Purpose: void EEPROMRead()
-  
+
   Parameter list:
     struct config_t e[]       pointer to the EEPROM structure
-    
+
   Return value;
     void
 *****/
-void EEPROMRead() 
-{ 
+void EEPROMRead()
+{
   unsigned int i;
   int incrementValues[] = {10, 50, 250, 1000};
 
 
   EEPROM.get(EEPROM_BASE_ADDRESS, EEPROMData);            // Read as one large chunk
-  
+
   lastWPM = currentWPM = EEPROMData.wordsPerMinute;
   paddleDit            = EEPROMData.paddleDit;
   paddleDah            = EEPROMData.paddleDah;
@@ -28,8 +28,8 @@ void EEPROMRead()
   currentFreqB         = EEPROMData.currentFreqB * NEW_SI5351_FREQ_MULT;
   activeVFO            = EEPROMData.currentVFO;
   NR_Filter_Value      = EEPROMData.NR_Filter_Value;
-  
-  for (i = 0; i < NUMBER_OF_ELEMENTS(incrementValues); i++) {         // Do this because other parts of the code using 
+
+  for (i = 0; i < NUMBER_OF_ELEMENTS(incrementValues); i++) {         // Do this because other parts of the code using
     if (EEPROMData.freqIncrement == incrementValues[i]) {             // tuneIndex rather than the increment value
       tuneIndex = i;
       break;
@@ -37,7 +37,7 @@ void EEPROMRead()
   }
   if (i >= NUMBER_OF_ELEMENTS(incrementValues))
     tuneIndex = 1;
-    
+
   freqIncrement = incrementValues[tuneIndex];
   frequencyCorrection = EEPROMData.frequencyOffset;
 
@@ -45,19 +45,19 @@ void EEPROMRead()
   IQ_phase_correction_factor      = EEPROMData.IQ_PhaseCorFactor;
   IQ_Xamplitude_correction_factor = EEPROMData.IQ_XAmpCorFactor;
   IQ_Xphase_correction_factor     = EEPROMData.IQ_XPhanseCorFactor;
-  
+
 }
 
 /*****
   Purpose: To save the configuration data to EEPROM
-  
+
   Parameter list:
     struct config_t e[]       pointer to the EEPROM structure
-    
+
   Return value;
     void
 *****/
-void EEPROMWrite() 
+void EEPROMWrite()
 {
 
   EEPROMData.wordsPerMinute     = currentWPM;
@@ -266,14 +266,14 @@ void EEPROMShow()
   Serial.print("IQ_Xphase_correction_factor = ");
   Serial.println(EEPROMData.IQ_XPhanseCorFactor);
 
-  for (i = 0; i < EQUALIZER_CELL_COUNT; i++) {  
+  for (i = 0; i < EQUALIZER_CELL_COUNT; i++) {
     Serial.print("equalizerRec[");
     Serial.print(i);
     Serial.print("] = ");
     Serial.println(EEPROMData.equalizerRec[i]);
   }
   Serial.println("");
-  for (i = 0; i < EQUALIZER_CELL_COUNT; i++) {  
+  for (i = 0; i < EQUALIZER_CELL_COUNT; i++) {
     Serial.print("equalizerXmt[");
     Serial.print(i);
     Serial.print("] = ");
@@ -284,7 +284,7 @@ void EEPROMShow()
     Serial.print(i);
     Serial.print("] = ");
     Serial.println(EEPROMData.audioPostProc[i]);
-  }     
+  }
  }
 
 
@@ -397,7 +397,7 @@ void EEPROMSaveDefaults()
   EEPROMData.switchValues[13]                = 142;
   EEPROMData.switchValues[14]                =  76;
   EEPROMData.switchValues[15]                =  10;
- 
+
   EEPROMData.wordsPerMinute                  = 15; // 4 bytes
   EEPROMData.zetaHelp                        = 65; // 4 bytes
 
@@ -458,8 +458,8 @@ void EEPROMSaveDefaults()
   }
   for (int i = 0; i < AUDIO_POST_PROCESSOR_BANDS; i++) {                // 8 * 4 = 32
     EEPROMData.audioPostProc[i] = 100;
-  }  
-  
+  }
+
   EEPROM.put(EEPROM_BASE_ADDRESS, EEPROMData);            // Write as one large chunk
 }                        //                      -----------
 //              Total:                                   600 bytes
@@ -468,14 +468,14 @@ void EEPROMSaveDefaults()
 
 /*****
   Purpose: Read default favorite frequencies
-  
+
   Parameter list:
     struct config_t e[]       pointer to the EEPROM structure
-    
+
   Return value;
     void
 *****/
-void EEPROMStuffFavorites(unsigned long current[])                                        
+void EEPROMStuffFavorites(unsigned long current[])
 {
   int i;
 
@@ -484,4 +484,4 @@ void EEPROMStuffFavorites(unsigned long current[])
     Serial.print("i = ");
     Serial.println(current[i]);
   }
-}          
+}

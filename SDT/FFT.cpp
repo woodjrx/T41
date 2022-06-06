@@ -5,10 +5,10 @@
 
 /*****
   Purpose: ZoomFFTPrep() is used to alter the x axis for the spectrum display, thus narrowing its badwidth.
-  
+
   Parameter list:
     void
-    
+
   Return value;
     void
 *****/
@@ -36,7 +36,7 @@ void ZoomFFTPrep()
 
 /*****
   Purpose: Zoom FFT
-  
+
   Parameter list:
     void
   Return value;
@@ -70,7 +70,7 @@ void ZoomFFTExe(uint32_t blockSize)  //AFP changed resolution 03-12-21  Only for
       // we take all the samples from zoom_sample_ptr to 256 and
       // then all samples from 0 to zoom_sampl_ptr - 1
       // fill into ringbuffer
-      
+
       for (int i = 0; i < sample_no; i++) {                 // interleave real and imaginary input values [real, imag, real, imag . . .]
         FFT_ring_buffer_x[zoom_sample_ptr] = x_buffer[i];
         FFT_ring_buffer_y[zoom_sample_ptr] = y_buffer[i];
@@ -80,7 +80,7 @@ void ZoomFFTExe(uint32_t blockSize)  //AFP changed resolution 03-12-21  Only for
       }
     } else                                                  // I have to think about this:
       zoom_display = 0;                                     // when do we want to display a new spectrum?
-    
+
     float32_t multiplier = (float32_t)spectrum_zoom;
     if (spectrum_zoom > SPECTRUM_ZOOM_8) { // && spectrum_zoom < SPECTRUM_ZOOM_1024) {
       multiplier = (float32_t)(1 << spectrum_zoom);

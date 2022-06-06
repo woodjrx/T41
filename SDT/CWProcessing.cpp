@@ -15,24 +15,24 @@
 *****/
 void Dit()
 {
-#ifdef DEBUG  
+#ifdef DEBUG
 Serial.println("Into dit");
 analogWrite(A0, 128);
 MyDelay(ditLength);
 analogWrite(A0, 0);
 MyDelay(ditLength);
-#endif   
+#endif
 /*
 
 //  digitalWrite(OPTO_OUTPUT, HIGH);    // Start dit
-//    digitalWrite(MUTE, LOW); 
+//    digitalWrite(MUTE, LOW);
   recMix_3.gain(3, ON);
   MyDelay(ditLength);
   recMix_3.gain(3, OFF);      //Turn off Sine Wave
 //  digitalWrite(OPTO_OUTPUT, LOW);     // End dit
-//    digitalWrite(MUTE, HIGH); 
+//    digitalWrite(MUTE, HIGH);
   MyDelay(ditLength);
-digitalWrite(KEYER_DIT_INPUT_TIP, HIGH); 
+digitalWrite(KEYER_DIT_INPUT_TIP, HIGH);
  */
 }
 
@@ -49,13 +49,13 @@ digitalWrite(KEYER_DIT_INPUT_TIP, HIGH);
 *****/
 void Dah()
 {
-#ifdef DEBUG  
+#ifdef DEBUG
 Serial.println("Into dah");
 analogWrite(A0, 128);
 MyDelay(ditLength * 3);
 analogWrite(A0, 0);
 MyDelay(ditLength);
-#endif   
+#endif
 /*
 //  digitalWrite(OPTO_OUTPUT, HIGH);    // Start dah
   recMix_3.gain(3, ON);
@@ -63,7 +63,7 @@ MyDelay(ditLength);
   recMix_3.gain(3, OFF);
 //  digitalWrite(OPTO_OUTPUT, LOW);    // End dah
   MyDelay(ditLength);
-digitalWrite(KEYER_DAH_INPUT_RING, HIGH); 
+digitalWrite(KEYER_DAH_INPUT_RING, HIGH);
 */
 }
 
@@ -437,7 +437,7 @@ void DoSignalPlot(float val)
 *****/
 void DoCWDecoding(int audioValue)
 {
- 
+
   if (audioValue == 1 && signalStart == 0L) {                         // This is the start of the signal
     signalStart = millis();
     gapEnd      = signalStart;                                        // Must be at noise end
@@ -466,7 +466,7 @@ void DoCWDecoding(int audioValue)
 
     if (gapLength > ditLength * 1.95) {                                // Is a char done??
       MorseCharacterDisplay(bigMorseCodeTree[currentDecoderIndex]);
-      if (gapLength > ditLength * 4.5) {      // good over 15WPM on W1AW; no Fransworth        
+      if (gapLength > ditLength * 4.5) {      // good over 15WPM on W1AW; no Fransworth
         MorseCharacterDisplay(' ');
         tft.setFontScale( (enum RA8875tsize) 0);                        // Show estimated WPM
         tft.setTextColor(RA8875_GREEN);
@@ -493,7 +493,7 @@ void DoCWDecoding(int audioValue)
           currentDecoderIndex += currentDashJump;
         }
       }
-   
+
     }
   }
 }
@@ -655,14 +655,14 @@ void DoSignalHistogram(long val)
   offset = (uint32_t)thresholdGeometricMean - 1;      // Only do cast once
                                                       // Dit calculation
                                                       // 2nd parameter means we only look for dits below the geomean.
-                                                       
+
   for (int32_t j = (int32_t) thresholdGeometricMean; j; j--) {
     if (signalHistogram[j] != 0) {
       firstNonEmpty = j;
       break;
-    }                                                      
+    }
   }
-  
+
   JackClusteredArrayMax(signalHistogram, offset, &tempDit,  (int32_t *) &ditLength, &firstNonEmpty, (int32_t) 1);
                                                       // dah calculation
                                                       // Elements above the geomean. Note larger spread: higher variance
@@ -726,7 +726,7 @@ float goertzel_mag(int numSamples, int TARGET_FREQUENCY, int SAMPLING_RATE, floa
 
 /*****
   Purpose:Display horizontal CW Decode level
-  
+
   Parameter list:
     void
 

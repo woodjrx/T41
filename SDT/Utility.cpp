@@ -14,7 +14,7 @@ void sineTone(int numCycles)
   float theta;
   float freqSideTone2;
   freqSideTone2=numCycles*24000/256;
-  for (int kf = 0; kf < 255; kf++) { //Calc 750 hz sine wave. 
+  for (int kf = 0; kf < 255; kf++) { //Calc 750 hz sine wave.
     theta = kf * 2*PI * freqSideTone2/ 24000;
     sinBuffer2[kf] = sin(theta);
   }
@@ -572,7 +572,7 @@ void Autotune() {
   // 4.) tune to the estimated carrier frequency with an accuracy of 0.01Hz ;-)
   // --> in reality, we achieve about 0.2Hz accuracy, not bad
 
-  const int posbin         = FFT_length / 2; 
+  const int posbin         = FFT_length / 2;
   const float32_t buff_len = FFT_length * 2.0;
   const float32_t bin_BW   = (float32_t) (SR[SampleRate].rate * 2.0 / DF / (buff_len));
   float32_t bw_LSB         = 0.0;

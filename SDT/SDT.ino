@@ -308,8 +308,8 @@ arm_lms_instance_f32      LMS_instance;
 
 
 struct band bands[NUM_BANDS] = {  //AFP Changed 1-30-21
-  //   freq       band low   band hi    mode    LSB/USB    Low    Hi  Gain  type    gain  AGC   pixel
-  //                                                     filter filter             correct     offset
+  // freq    band low   band hi  mode   LSB/USB    Low    Hi  Gain  type    gain  AGC   pixel
+  //                                             filter filter             correct     offset
   3700000,   3500000,  3800000, "80M", DEMOD_LSB, -100, -4000, 15, HAM_BAND, 6.0, 30,   20,
   7150000,   7000000,  7300000, "40M", DEMOD_LSB, -100, -4000,  0, HAM_BAND, 4.0, 30,   20,
   14200000, 14000000, 14350000, "20M", DEMOD_USB, 4000,   100,  0, HAM_BAND, 7.0, 30,   20,

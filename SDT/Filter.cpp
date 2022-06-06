@@ -17,7 +17,7 @@ void FilterBandwidth()
 
   // also adjust IIR AM filter
   int filter_BW_highest = bands[currentBand].FHiCut;
-  if (filter_BW_highest < -bands[currentBand].FLoCut) 
+  if (filter_BW_highest < -bands[currentBand].FLoCut)
     filter_BW_highest = -bands[currentBand].FLoCut;
   SetIIRCoeffs((float32_t)filter_BW_highest, 1.3, (float32_t)SR[SampleRate].rate / DF, 0); // 1st stage
   for (int i = 0; i < 5; i++)
@@ -78,7 +78,7 @@ void InitFilterMask()
   Return value;
     void
 *****/
-void ControlFilterF() 
+void ControlFilterF()
 {
 
   // low Fcut must never be larger than high Fcut and vice versa
@@ -86,7 +86,7 @@ void ControlFilterF()
     bands[currentBand].FHiCut = bands[currentBand].FLoCut;
   if (bands[currentBand].FLoCut > bands[currentBand].FHiCut)
     bands[currentBand].FLoCut = bands[currentBand].FHiCut;
-    
+
                                                                 // calculate maximum possible FHiCut
   float32_t sam = (SR[SampleRate].rate / (DF * 2.0)) - 100.0;
                                                                 // clamp FHicut and Flowcut to max / min values
@@ -131,7 +131,7 @@ void SetDecIntFilters()
      Recalculate decimation and interpolation FIR filters
   ****************************************************************************************/
   int filter_BW_highest = bands[currentBand].FHiCut;
-  
+
   if (filter_BW_highest < - bands[currentBand].FLoCut) {
     filter_BW_highest = - bands[currentBand].FLoCut;
   }

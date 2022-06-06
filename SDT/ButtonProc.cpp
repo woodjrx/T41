@@ -216,7 +216,7 @@ void ButtonNotchFilter()
   Return value:
     int                       the display option
 *****/
-int ButtonDisplayOptions() 
+int ButtonDisplayOptions()
 {
   const char *displayChoices[] = {"Spectrum", "Waterfall", "Both", "None", "Cancel"};
   int currentDisplayMode = displayMode;

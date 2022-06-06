@@ -9,7 +9,7 @@ char atom, currentAtom;
              Calculate FFT for display
              Process audio into SSB signalF
              Output audio to amplifier
-             
+
    Parameter List:
       void
 
@@ -18,7 +18,7 @@ char atom, currentAtom;
 
    CAUTION: Assumes a spaces[] array is defined
  *****/
-void ProcessIQData() 
+void ProcessIQData()
 {
   /**********************************************************************************  AFP 12-31-20
         Get samples from queue buffers

@@ -231,7 +231,7 @@ int NROptions()
 
   Return value
     int               1 done for consistency of definition
-    
+
   CAUTION:  Sub menu selection for Rec IQ and transmit IQ
     Each set of adjustment first does IG gain factor and then IQ phase factor
     To use:
@@ -254,7 +254,7 @@ int IQOptions()
   static float32_t IQ_phase_correction_factorOld;
   static float32_t IQ_Xamplitude_correction_factorOld;
   static float32_t IQ_Xphase_correction_factorOld;
-*/  
+*/
   spectrum_zoom = 0;
 
   ZoomFFTPrep();
@@ -329,8 +329,8 @@ int IQOptions()
           val = ProcessButtonPress(val);                    // Use ladder value to get menu choice
           if (val == 0) {                  // Make a choice??
             IQCalFlag = 0;
-            IQ_RecCalFlag = 0; //  AFP 04-17-22 
-            SetFreq();         //  AFP 04-17-22 
+            IQ_RecCalFlag = 0; //  AFP 04-17-22
+            SetFreq();         //  AFP 04-17-22
             EEPROMWrite();
             ShowSpectrum();
             break;
@@ -401,7 +401,7 @@ int IQOptions()
         if (digitalRead(PTT) == LOW) {
           mute = 1;
           digitalWrite(RXTX, HIGH);
-          si5351.output_enable(SI5351_CLK2, 0);  
+          si5351.output_enable(SI5351_CLK2, 0);
           modeSelectInR.gain(0, 1.0); //Selects Ex
           modeSelectInR.gain(1, 0.0); //Selects Ex
           modeSelectInL.gain(0, 1.0); //Selects Ex
@@ -558,7 +558,7 @@ void ProcessEqualizerChoices(int array[], char *title)
                      barWidth,                                     // Set bar width
                      newValue,                                     // Draw new bar
                      ORANGE);
-        array[columnIndex] = newValue;                     
+        array[columnIndex] = newValue;
         columnIndex++;
         break;
       }
@@ -580,7 +580,7 @@ int EqualizerRecOptions()
 {
   ProcessEqualizerChoices(EEPROMData.equalizerRec, (char *)"Receive Equalizer");
   EEPROMWrite();
-  RedrawDisplayScreen();  
+  RedrawDisplayScreen();
 
   return 0;
 }
@@ -598,7 +598,7 @@ int EqualizerXmtOptions()
 {
   ProcessEqualizerChoices(EEPROMData.equalizerXmt, (char *) "Transmit Equalizer");
   EEPROMWrite();
-  RedrawDisplayScreen();  
+  RedrawDisplayScreen();
   return 0;
 }
 
@@ -614,7 +614,7 @@ int EqualizerXmtOptions()
 int MicOptions()
 {
   const char *micChoices[] = {"On", "Off", "Cancel"};
-  
+
   micChoice = SubmenuSelect(micChoices, 3, micChoice);
   switch (micChoice) {
     case 0:                           // On

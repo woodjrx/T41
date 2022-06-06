@@ -27,7 +27,7 @@ void ShowMenu(const char *menu[], int where)
 {
   static int refreshFlag    = 0;
 
-  tft.setFontScale( (enum RA8875tsize) 1);  
+  tft.setFontScale( (enum RA8875tsize) 1);
 
   if (where == PRIMARY_MENU) {                          // Should print on left edge of top line
     tft.fillRect(30, 0, 300, CHAR_HEIGHT, RA8875_BLUE);        // Top-left of display

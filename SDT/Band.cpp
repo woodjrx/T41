@@ -46,7 +46,7 @@ void ButtonBandIncrease()
   } else {
     centerFreq =  TxRxFreq = currentFreqB = bands[currentBand].freq;
    }
- 
+
   freq_flag[1] = 0;
   SetBand();
   SetFreq();
@@ -76,11 +76,11 @@ void ButtonBandDecrease()
     currentBand = FIRST_BAND;
   }
   if (activeVFO == VFO_A) {
-    TxRxFreq = currentFreqA = bands[currentBand].freq;  
+    TxRxFreq = currentFreqA = bands[currentBand].freq;
   } else {
-    TxRxFreq = currentFreqB = bands[currentBand].freq;  
+    TxRxFreq = currentFreqB = bands[currentBand].freq;
   }
-  centerFreq = TxRxFreq; 
+  centerFreq = TxRxFreq;
   freq_flag[1] = 0;
   SetBand();
   SetFreq();
@@ -96,11 +96,11 @@ void ButtonBandDecrease()
   Return value;
     void
 *****/
-void SetBand() 
+void SetBand()
 {
   old_demod_mode = -99; // used in setup_mode and when changing bands, so that LoCut and HiCut are not changed!
   SetupMode(bands[currentBand].mode);
   SetFreq();
-  ShowFrequency();  
+  ShowFrequency();
   FilterBandwidth();
 }
