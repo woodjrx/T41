@@ -16,7 +16,6 @@ void EEPROMRead()
   unsigned int i;
   int incrementValues[] = {10, 50, 250, 1000};
 
-
   EEPROM.get(EEPROM_BASE_ADDRESS, EEPROMData);            // Read as one large chunk
 
   lastWPM = currentWPM = EEPROMData.wordsPerMinute;
@@ -45,7 +44,6 @@ void EEPROMRead()
   IQ_phase_correction_factor      = EEPROMData.IQ_PhaseCorFactor;
   IQ_Xamplitude_correction_factor = EEPROMData.IQ_XAmpCorFactor;
   IQ_Xphase_correction_factor     = EEPROMData.IQ_XPhanseCorFactor;
-
 }
 
 /*****
@@ -59,7 +57,6 @@ void EEPROMRead()
 *****/
 void EEPROMWrite()
 {
-
   EEPROMData.wordsPerMinute     = currentWPM;
   EEPROMData.paddleDit          = paddleDit;
   EEPROMData.paddleDah          = paddleDah;
@@ -287,7 +284,6 @@ void EEPROMShow()
   }
  }
 
-
 /*****
   Purpose: To save the default setting for EEPROM variables
 
@@ -463,8 +459,6 @@ void EEPROMSaveDefaults()
   EEPROM.put(EEPROM_BASE_ADDRESS, EEPROMData);            // Write as one large chunk
 }                        //                      -----------
 //              Total:                                   600 bytes
-
-
 
 /*****
   Purpose: Read default favorite frequencies

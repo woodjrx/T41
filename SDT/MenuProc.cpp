@@ -65,6 +65,7 @@ int SpectrumOptions()
   ShowSpectrumdBScale();
   return spectrumSet;
 }
+
 /*****
   Purpose: Present the bands available and return the selection
 
@@ -169,6 +170,7 @@ int SetFilterValue()
   tft.fillRect(251, 0, 250, CHAR_HEIGHT, RA8875_BLACK);
   return oldValue;
 }
+
 /*****
   Purpose: Present the noise reduction options
 
@@ -440,11 +442,12 @@ int IQOptions()
       }
     case 2:                                 //Cancel
       break;
- 
+
   }
   IQ_RecCalFlag = 0;
   return 1;                                 // To keep function pointer happy
 }
+
 /*****
   Purpose: To process the graphics for the 14 chan equalizar otpion
 
@@ -566,7 +569,6 @@ void ProcessEqualizerChoices(int array[], char *title)
   }
 }
 
-
 /*****
   Purpose: Present the bands available and return the selection
 
@@ -634,6 +636,7 @@ int MicOptions()
   secondaryMenuIndex = -1;
   return micChoice;
 }
+
 /*****
   Purpose: Determine the frequency offset to provide more accurate frequncy tuning
 
@@ -709,7 +712,6 @@ int RFOptions()
   }
   return returnValue;
 }
-
 
 /*****
   Purpose: This option reverses the dit and dah paddles on the keyer
@@ -819,7 +821,6 @@ void SetKeyerSidetone()
   }
 }
 
-
 /*****
   Purpose: Used to change the currently active VFO
 
@@ -906,7 +907,6 @@ int EEPROMOptions()
   }
   return defaultOpt;
 }
-
 
 /*****
   Purpose: To select an option from a submenu

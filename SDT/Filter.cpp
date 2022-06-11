@@ -44,7 +44,6 @@ void FilterBandwidth()
 *****/
 void InitFilterMask()
 {
-
   /****************************************************************************************
      Calculate the FFT of the FIR filter coefficients once to produce the FIR filter mask
   ****************************************************************************************/
@@ -80,7 +79,6 @@ void InitFilterMask()
 *****/
 void ControlFilterF()
 {
-
   // low Fcut must never be larger than high Fcut and vice versa
   if (bands[currentBand].FHiCut < bands[currentBand].FLoCut)
     bands[currentBand].FHiCut = bands[currentBand].FLoCut;
@@ -118,6 +116,7 @@ void ControlFilterF()
       break;
   }
 }
+
 /*****
   Purpose: void SetDecIntFilters()
   Parameter list:

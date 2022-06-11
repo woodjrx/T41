@@ -94,7 +94,6 @@ void ShowName()
   tft.print(VERSION);
 }
 
-
 /*****
   Purpose: Show Spectrum display
             Note that this routine calls the Audio process Function during each display cycle,
@@ -356,7 +355,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     }
   }
 
-
   /*****
     Purpose: This function draws the frequency bar at the bottom of the spectrum scope, putting markers at every
               graticule and the full frequency
@@ -492,6 +490,7 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     //  BandInformation();
     ShowBandwidth();
   }
+
   /*****
     Purpose: void ShowAnalogGain()
 
@@ -654,8 +653,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     tft.setFontDefault();
 
   } // END VOID SHOW-FREQUENCY
-
-
 
   /*****
     Purpose: Display dBm
@@ -963,7 +960,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
   *****/
   void UpdateVolumeField()
   {
-
     tft.setFontScale( (enum RA8875tsize) 1);
 
     tft.setCursor(BAND_INDICATOR_X + 20, BAND_INDICATOR_Y);       // Volume
@@ -974,6 +970,7 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     tft.setCursor(FIELD_OFFSET_X, BAND_INDICATOR_Y);
     tft.print(audio_volume);
   }
+
   /*****
     Purpose: Updates the AGC on the display
 
@@ -997,6 +994,7 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     tft.print("AGC");
 
   }
+
   /*****
     Purpose: Updates the increment setting on the display
 
@@ -1008,7 +1006,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
   *****/
   void UpdateIncrementField()
   {
-
     tft.setFontScale( (enum RA8875tsize) 0);
 
     tft.setTextColor(RA8875_WHITE);                                 // Frequency increment
@@ -1019,6 +1016,7 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     tft.setTextColor(RA8875_GREEN);
     tft.print(freqIncrement);
   }
+
   /*****
     Purpose: Updates the notch value on the display
 
@@ -1071,6 +1069,7 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     tft.setTextColor(RA8875_GREEN);
     tft.print(zoomOptions[zoomIndex]);
   }
+
   /*****
     Purpose: Updates the compression setting in Info Window
 
@@ -1092,6 +1091,7 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     tft.setTextColor(RA8875_GREEN);
     tft.print(micCompression);
   }
+
   /*****
     Purpose: Updates whether the decoder is on or off
 
@@ -1103,7 +1103,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
   *****/
   void UpdateDecoderField()
   {
-
     tft.setFontScale( (enum RA8875tsize) 0);
 
     tft.setTextColor(RA8875_WHITE);                                 // Display zoom factor
@@ -1118,7 +1117,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
       tft.print("Off");
     }
   }
-
 
   /*****
     Purpose: Updates the WPM setting on the display
@@ -1146,7 +1144,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     }
   }
 
-
   /*****
     Purpose: Updates the noise field on the display
 
@@ -1158,7 +1155,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
   *****/
   void UpdateNoiseField()
   {
-
     tft.setFontScale( (enum RA8875tsize) 0);
 
     tft.fillRect(FIELD_OFFSET_X, NOISE_REDUCE_Y, 100, CHAR_HEIGHT, RA8875_BLACK);
@@ -1282,7 +1278,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
   *****/
   void ShowNotch()
   {
-
     tft.fillRect(NOTCH_X, NOTCH_Y + 30, 150, tft.getFontHeight() + 5, RA8875_BLACK);
     if (NR_first_time == 0)
       tft.setTextColor(RA8875_LIGHT_GREY);
@@ -1315,7 +1310,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     tft.fillRect(SPECTRUM_LEFT_X - 2, SPECTRUM_TOP_Y - 1, MAX_WATERFALL_WIDTH + 6, SPECTRUM_HEIGHT + 8,  RA8875_BLACK); // Spectrum box
   }
 
-
   /*****
     Purpose: This function draws the Info Window frame
 
@@ -1330,7 +1324,6 @@ void ShowSpectrum()  //AFP Extensively Modified 3-15-21 Adjusted 12-13-21 to ali
     tft.drawRect(BAND_INDICATOR_X - 10, BAND_INDICATOR_Y - 2, 260, 200, RA8875_LIGHT_GREY);
     tft.fillRect(TEMP_X_OFFSET, TEMP_Y_OFFSET + 80, 80, tft.getFontHeight() + 10, RA8875_BLACK);  // Clear volume field
   }
-
 
   /*****
     Purpose: This function redraws the entire display screen where the equalizers appeared

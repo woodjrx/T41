@@ -91,7 +91,6 @@ void Kim1_NR()
         NR_FFT_buffer[idx * 2] *= temp_sample;
       }
 
-
 #if 0     // Odd way to comment something out. Not sure why they did this. JJP
 
       // perform windowing on 256 real samples in the NR_FFT_buffer
@@ -174,7 +173,6 @@ void Kim1_NR()
         NR_E_pointer = 0;
       }
 
-
 #if 0
       for (int idx = 1; idx < 20; idx++) {      // bins 2 to 29 attenuated set real values to 0.1 of their original value
         NR_iFFT_buffer[idx * 2] *= 0.1;
@@ -207,6 +205,7 @@ void Kim1_NR()
   } // end of Kim et al. 2002 algorithm
 
 }
+
 /*****
   Purpose:   void xanr
   Parameter list:
@@ -599,6 +598,7 @@ void InitLMSNoiseReduction()
   arm_lms_norm_init_f32(&LMS_Norm_instance, calc_taps, &LMS_NormCoeff_f32[0], &LMS_StateF32[0], mu_calc, 256);
 
 }
+
 /*****
   Purpose:
   Parameter list:

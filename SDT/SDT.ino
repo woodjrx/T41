@@ -194,8 +194,6 @@ arm_biquad_cascade_df2T_instance_f32 S12_EXcite = {IIR_NUMSTAGES, EQ_Band12_stat
 arm_biquad_cascade_df2T_instance_f32 S13_EXcite = {IIR_NUMSTAGES, EQ_Band13_state, EQ_Band13Coeffs};
 arm_biquad_cascade_df2T_instance_f32 S14_EXcite = {IIR_NUMSTAGES, EQ_Band14_state, EQ_Band14Coeffs};
 
-
-
 //EQBuffers
 float32_t float_buffer_L1_EX [256];
 float32_t float_buffer_L2_EX [256];
@@ -230,10 +228,8 @@ arm_fir_interpolate_instance_f32 FIR_int1_EX_Q;
 arm_fir_interpolate_instance_f32 FIR_int2_EX_I;
 arm_fir_interpolate_instance_f32 FIR_int2_EX_Q;
 
-
 float32_t DMAMEM FIR_dec1_EX_I_state[2095];
 float32_t DMAMEM FIR_dec1_EX_Q_state[2095];
-
 
 float32_t DMAMEM FIR_dec2_EX_I_state[535];
 float32_t DMAMEM FIR_dec2_EX_Q_state[535];
@@ -261,7 +257,6 @@ float32_t CW_Filter_state[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 arm_biquad_cascade_df2T_instance_f32 S1_CW_Filter = {IIR_CW_NUMSTAGES, CW_Filter_state, CW_Filter_Coeffs};
 
 //=== end CW Filter ===
-
 
 struct config_t EEPROMData;
 
@@ -480,7 +475,6 @@ int kTemp;
 
 long startTime = 0;
 
-
 char theversion[10];
 char decodeBuffer[30];                   // The buffer for holding the decoded characters
 
@@ -669,7 +663,6 @@ float thresholdGapGeometricMean;
 float thresholdGapArithmeticMean;
 long CWFreqShift;
 // ============ end new stuff =======
-
 
 uint16_t notches_BW[2]                    = {4, 4}; // no. of bins --> notch BW = no. of bins * bin_BW
 uint16_t SAM_display_count;
@@ -1231,8 +1224,6 @@ time_t getTeensy3Time()
 
 PROGMEM
 
-
-
 //==================================================================================
 
 /*****
@@ -1247,7 +1238,6 @@ PROGMEM
 *****/
 void Codec_gain()
 {
-
   static uint32_t timer = 0;
   timer ++;
   if (timer > 10000) timer = 10000;
@@ -1292,8 +1282,6 @@ void Codec_gain()
   quarter_clip = 0;   // clear indicator that, if not triggered, indicates that we can increase gain
 }
 
-
-
 // is added in Teensyduino 1.52 beta-4, so this can be deleted !?
 /*****
   Purpose: To set the real time clock
@@ -1326,7 +1314,6 @@ void T4_rtc_set(unsigned long t)
 }
 
 #define TABLE_SIZE_64 64
-
 
 /*****
   Purpose: void initTempMon
@@ -1411,7 +1398,6 @@ float VolumeToAmplification(int volume)
 
   Return value:
     int             the frequency or 0 if too large
-
 *****/
 int SetI2SFreq(int freq) {
   int n1;
@@ -1449,7 +1435,6 @@ int SetI2SFreq(int freq) {
   return freq;
 }
 
-
 /*****
   Purpose: to cause a delay in program execution
 
@@ -1466,6 +1451,7 @@ void MyDelay(unsigned long millisWait)
   while (millis() - now < millisWait)
     ;                                   // Twiddle thumbs until delay ends...
 }
+
 /*****
   Purpose: to collect array inits in one place
 
@@ -1686,6 +1672,7 @@ void InitializeDataArrays()
   // this starts the measurements
   TEMPMON_TEMPSENSE0 |= 0x2U;
 }
+
 /*****
   Purpose: The initial screen display on startup. Expect this to be customized
 
@@ -1777,6 +1764,7 @@ void RefreshMainDisplay(int displayMode)
 //===============================================================================================================================
 //==========================  Setup ================================
 PROGMEM
+
 /*****
   Purpose: program entry point that sets the environment for program
 
@@ -1788,7 +1776,6 @@ PROGMEM
 *****/
 void setup()
 {
-
   Serial.begin(115200);
   //while (!Serial)
   //  ;

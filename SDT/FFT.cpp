@@ -2,7 +2,6 @@
 #include "SDT.h"
 #endif
 
-
 /*****
   Purpose: ZoomFFTPrep() is used to alter the x axis for the spectrum display, thus narrowing its badwidth.
 
@@ -110,7 +109,6 @@ void ZoomFFTExe(uint32_t blockSize)  //AFP changed resolution 03-12-21  Only for
       pixelold[i] = pixelnew[i];
     }
 
-
     // perform complex FFT
     // calculation is performed in-place the FFT_buffer [re, im, re, im, re, im . . .]
     arm_cfft_f32(spec_FFT, buffer_spec_FFT, 0, 1);
@@ -134,6 +132,7 @@ void ZoomFFTExe(uint32_t blockSize)  //AFP changed resolution 03-12-21  Only for
     }
   }
 }
+
 /*****
   Purpose: CalcZoom1Magn()
   Parameter list:
@@ -154,7 +153,6 @@ void CalcZoom1Magn()
   for (int i = 0; i < SPECTRUM_RES; i++) {
     pixelold[i] = pixelnew[i];
   }
-
 
   for (int i = 0; i < SPECTRUM_RES; i++) { // interleave real and imaginary input values [real, imag, real, imag . . .]
     buffer_spec_FFT[i * 2] =      float_buffer_L[i] * (0.5 - 0.5 * cos(6.28 * i / SPECTRUM_RES)); //Hanning

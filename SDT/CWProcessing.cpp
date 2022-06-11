@@ -67,7 +67,6 @@ digitalWrite(KEYER_DAH_INPUT_RING, HIGH);
 */
 }
 
-
 /*****
   Purpose: to provide spacing between letters
 
@@ -83,6 +82,7 @@ void LetterSpace()
 {
   MyDelay(3UL * ditLength);
 }
+
 /*****
   Purpose: to provide spacing between words
 
@@ -124,7 +124,6 @@ void SendCode(char code)
   }
   LetterSpace();
 }
-
 
 /*****
   Purpose: to send a Morse code character
@@ -225,7 +224,6 @@ void SetDitLength(int wpm)
   ditLength = 1200 / wpm;
 }
 
-
 /*****
   Purpose: Select straight key or keyer
 
@@ -274,7 +272,6 @@ void MorseCharacterDisplay(char currentLetter)
   tft.print(decodeBuffer);
 }
 
-
 /*****
   Purpose: When the CW decoder is active, this function allows the user to set the ditLenght, which updates
            the display for the new WPM.
@@ -297,7 +294,6 @@ void DisplayDitLength()
   tft.setTextColor(RA8875_WHITE);
   tft.print(" ]");
 }
-
 
 /*****
   Purpose: This function looks up the current character in the decode array using a binary search algorithm.
@@ -416,7 +412,6 @@ void DoSignalPlot(float val)
     }
   }
 }
-
 
 /*****
   Purpose: Called when in CW mode and decoder flag is set. Function assumes:

@@ -105,7 +105,6 @@ void ProcessIQData()
       IQ amplitude and phase correction
     ***********************************************************************************************/
 
-
     // Manual IQ amplitude correction
     // to be honest: we only correct the amplitude of the I channel ;-)
     arm_scale_f32 (float_buffer_L, -IQ_amplitude_correction_factor, float_buffer_L, BUFFER_SIZE * N_BLOCKS); //AFP 04-14-22
@@ -161,6 +160,7 @@ void ProcessIQData()
       zoom_display = 1;
       //zoom_sample_ptr = 0;
     }
+
     /**********************************************************************************  AFP 12-31-20
         S-Meter & dBm-display ?? not usually called
      **********************************************************************************/
@@ -173,7 +173,6 @@ void ProcessIQData()
     } else if (display_S_meter_or_spectrum_state == 3) {
       // ??
     }
-
 
     /*************************************************************************************************
         freq_conv2()
@@ -191,7 +190,6 @@ void ProcessIQData()
      *************************************************************************************************/
 
     FreqShift2();  //AFP 12-14-21
-
 
     /**********************************************************************************  AFP 12-31-20
         Decimation
@@ -362,6 +360,7 @@ void ProcessIQData()
         }
       }
     }
+
     /**********************************************************************************
       Noise Reduction
       3 algorithms working 3-15-22
@@ -387,12 +386,14 @@ void ProcessIQData()
 
     }
     //==================  End NR ============================
+
     // ===========================Aotomatic Notch ==================
     if (ANR_notchOn == 1) {
       ANR_notch = 1;
       Xanr();
     }
     // ====================End notch =================================
+
     /**********************************************************************************
       EXPERIMENTAL: noise blanker
       by Michael Wild
@@ -417,7 +418,6 @@ void ProcessIQData()
       // ----------------------  Correlation calculation  AFP 02-04-22 -------------------------
 
       //Calculate correlation between calc sine and incoming signal
-
       arm_correlate_f32  ( float_buffer_R, 256, sinBuffer, 256, float_Corr_BufferR ) ;    //AFP 02-02-22
       arm_max_f32  ( float_Corr_BufferR, 511, &corrResultR, &corrResultIndexR);    //AFP 02-02-22
       //running average of corr coeff.
@@ -469,8 +469,6 @@ void ProcessIQData()
     // interpolation-by-4
     arm_fir_interpolate_f32(&FIR_int2_I, iFFT_buffer, float_buffer_L, BUFFER_SIZE * N_BLOCKS / (uint32_t)(DF1));
     arm_fir_interpolate_f32(&FIR_int2_Q, FFT_buffer, float_buffer_R, BUFFER_SIZE * N_BLOCKS / (uint32_t)(DF1));
-
-
 
     /**********************************************************************************  AFP 12-31-20
       Digital Volume Control

@@ -13,6 +13,7 @@
                               &NBOptions, &RFOptions
                              };
   */
+
 /*****
   Purpose: void ShowMenu()
 

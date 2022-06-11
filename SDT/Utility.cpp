@@ -20,7 +20,6 @@ void sineTone(int numCycles)
   }
 }
 
-
 const float32_t atanTable[68] = {
   -0.015623728620477f,
   0.000000000000000f,  // = 0 for in = 0.0
@@ -125,6 +124,7 @@ void IQPhaseCorrection(float32_t *I_buffer, float32_t *Q_buffer, float32_t facto
     arm_add_f32 (I_buffer, temp_buffer, I_buffer, blocksize);
   }
 } // end IQ_phase_correction
+
 /*****
   Purpose: Calculate sinc function
 
@@ -170,7 +170,6 @@ float32_t Izero(float32_t x)
   return (summe);
 }  // END Izero
 
-
 /*****
   Purpose:    Fast algorithm for log10
               This is a fast approximation to log2()
@@ -198,7 +197,6 @@ float32_t log10f_fast(float32_t X) {
   Y += E;
   return (Y * 0.3010299956639812f);
 }
-
 
 /*****
   Purpose: SetAttenuator(int value)
@@ -252,7 +250,6 @@ void SetAttenuator(int value)
 *****/
 void Calculatedbm()
 {
-
   // calculation of the signal level inside the filter bandwidth
   // taken from the spectrum display FFT
   // taking into account the analog gain before the ADC
@@ -419,7 +416,6 @@ void Calculatedbm()
   dbmhz = m_AverageMagdbmhz;                  // write average into variable for S-meter display
 }
 
-
 /*****
   Purpose: Fast approximation to the trigonometric atan2 function for floating-point data.
 
@@ -531,7 +527,6 @@ float32_t AlphaBetaMag(float32_t  inphase, float32_t  quadrature)   // (c) Andr√
   }
 }
 
-
 /*****
   Purpose: copied from https://www.dsprelated.com/showarticle/1052.php
            Polynomial approximating arctangenet on the range -1,1.
@@ -549,7 +544,6 @@ float ApproxAtan(float z)
   const float n2 = -0.19194795f;
   return (n1 + n2 * z * z) * z;
 }
-
 
 /*****
   Purpose: void AM Autotune()
@@ -737,6 +731,7 @@ void SaveAnalogSwitchValues()
 }
 
 // ================== Clock stuff
+
 /*****
   Purpose: DisplayClock()
   Parameter list:
@@ -772,7 +767,6 @@ void DisplayClock()
   }
   strcat(timeBuffer, temp);
 
-
   tft.setFontScale( (enum RA8875tsize) 1);
 
   tft.fillRect(TIME_X, TIME_Y, XPIXELS - TIME_X - 1, CHAR_HEIGHT, RA8875_BLACK);
@@ -781,9 +775,7 @@ void DisplayClock()
   tft.print(timeBuffer);
 }                                                   // end function displayTime
 
-
 // ============== Mode stuff
-
 
 /*****
   Purpose: SetupMode sets default mode for the selected band

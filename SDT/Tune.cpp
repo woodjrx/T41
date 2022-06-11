@@ -2,7 +2,6 @@
 #include "SDT.h"
 #endif
 
-
 /*****
   Purpose: SetFrequency
 

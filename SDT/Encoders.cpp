@@ -2,7 +2,6 @@
 #include "SDT.h"
 #endif
 
-
 /*****
   Purpose: EncoderTune
   Parameter list:
@@ -39,7 +38,6 @@ void EncoderTune()
       MyDelay(10);
       break;
   }
-
 
   newFreq = (long)freqIncrement * tuneChange;
   centerFreq += newFreq;                // tune the master vfo and check boundaries
@@ -95,7 +93,6 @@ void EncoderVolume()   //AFP 1-28-21
     tft.print(audio_volume);
   }
 }
-
 
 /*****
   Purpose: Use the encoder to change the value of a number
@@ -213,7 +210,6 @@ int SetWPM()
   return currentWPM;
 }
 
-
 /*****
   Purpose: EncoderTune
 
@@ -227,7 +223,6 @@ int SetWPM()
 void EncoderFilterAndWPM() {  //AFP 1-28-21
   static long filter_pos  = 0, last_filter_pos  = 0;
   long filter_change;
-
 
   //switchFilterSideband==1;  // uncomment to Test opposite sideband filter selection
   ////////////////////////////////////////////////  Encoder 2 Filter

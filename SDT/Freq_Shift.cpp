@@ -76,7 +76,6 @@ void FreqShift2()
     stream is sent to the Zoom FFT , but befor decimation.
  *************************************************************************************************/
 
-
 //  static long currentFreqAOld;
   static long oldEncoderTime;
   static long oldFineEncoderRead;

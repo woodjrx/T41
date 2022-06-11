@@ -1,8 +1,6 @@
-
 #ifndef BEENHERE
 #include "SDT.h"
 #endif
-
 
 /*****
   Purpose: Function is designed to route program control to the proper execution point in response to

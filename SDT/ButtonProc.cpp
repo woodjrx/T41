@@ -121,7 +121,6 @@ void ButtonDemodMode()
   AudioInterrupts();
 }
 
-
 /*****
   Purpose: Set transmission mode for SSB or CW
 

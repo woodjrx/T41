@@ -96,7 +96,6 @@ void ExciterIQData()
     //--------------  Hilbert Transformers
     //arm_copy_f32 (float_buffer_L_EX, float_buffer_R_EX, 256);
 
-
     /**********************************************************************************
              R and L channels are processed though the two Hilbert Transformers, L at 0 deg and R at 90 deg
              Tthe result are the quadrature data streans, I and Q necessary for Phasing calculations to
@@ -145,7 +144,6 @@ void ExciterIQData()
     //  192KHz effective sample rate here
     arm_scale_f32(float_buffer_L_EX, 20, float_buffer_L_EX, 2048); //Scale to compensate for losses in Interpolation
     arm_scale_f32(float_buffer_R_EX, 20, float_buffer_R_EX, 2048);
-
 
     /**********************************************************************************  AFP 12-31-20
       CONVERT TO INTEGER AND PLAY AUDIO
