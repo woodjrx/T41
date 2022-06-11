@@ -1,23 +1,29 @@
 /*********************************************************************************************
+   T41-EP-SDT
+   (c) Jack Prudum, W8TEE & Al Peter, AC8GY
+   An Open-Source Software Defined Amateur Radio Transceiver
 
-  This comment block must appear in the load page (e.g., main() or setup()) in any source code
-  that uses code presented as whole or part of the T41-EP source code.
+   Based on "TEENSY CONVOLUTION SDR" (c) Frank Dziock, DD4WH, 2020_05_8
+   Substantially modified by Jack Purdum, W8TEE, and Al Peter, AC8GY
 
-  (c) Frank Dziock, DD4WH, 2020_05_8
-  "TEENSY CONVOLUTION SDR" substantially modified by Jack Purdum, W8TEE, and Al Peter, AC8GY
-
-  This software is made available under the Freeware license agreement, which prevents the use of
-  the software for commercial use. If any commercial use of this software is planned, the interested
-  parties must first get written approval from Jack Purdum, W8TEE, and Al Peter, AC8GY. User for non-
-  commerical use is acceptable.
-
-  Any and all other commercial uses, written or implied, are forbidden without written permission from
-  Dr. Jack Purdum, W8TEE, and Al Peter, AC8GY.
-
-  V010 June, 03, 2022  Jack Purdum (W8TEE): CW sending section still incomplete
-  FLASH: code:193424, data:82860, headers:8384   free for files:7841796
-   RAM1: variables:162528, code:190152, padding:6456   free for local variables:165152
-   RAM2: variables:429920  free for malloc/new:94368
+*********************************************************************************
+   GNU GPL LICENSE v3
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>
+*********************************************************************************
+   HISTORY:
+     V010 June, 03, 2022  Jack Purdum (W8TEE): CW sending section still incomplete
+        FLASH: code:193424, data:82860, headers:8384   free for files:7841796
+        RAM1: variables:162528, code:190152, padding:6456   free for local variables:165152
+        RAM2: variables:429920  free for malloc/new:94368
 *********************************************************************************************/
 
                           // setup() and loop() at the bottom of this file

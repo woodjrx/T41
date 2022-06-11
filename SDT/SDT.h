@@ -1,5 +1,5 @@
 #ifndef BEENHERE
-#define BEENHERERA8875_DISPLAYRA8875_DISPLAY
+#define BEENHERE
 
 //======================================== Library include files ========================================================
 #include <Adafruit_GFX.h>
